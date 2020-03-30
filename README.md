@@ -1,6 +1,7 @@
 # tutorial
 
 Example of a general input parameter files for Gromacs 4 for using flexDQ water model.
+For the usage of Gromacs, please check http://www.gromacs.org/
 
 md-xxx.mdp is the input parameter for mdrun
 xxx.gro is the initial structure of the system
@@ -10,6 +11,9 @@ index-xxx.ndx is generated from make_ndx, grps name should be same with .mdp
 -table gives the prefix of the tabulated potential files
 
 Water .itp should be included in the .top file (#include flexdq.itp)
+
+Here, we put all the input parameter files used in each files folder.
+User can run a simulation directly in the certain directory.
 
 For CH4 system:
 ### Generate .tpr file
@@ -28,7 +32,5 @@ For Cl system:
 grompp -f md-cl.mdp -c cl.gro -p topol-cl.top -n index-cl.ndx -o md.tpr
 ### Launch the simulation
 mdrun -deffnm md -table md
-
-
 
 
