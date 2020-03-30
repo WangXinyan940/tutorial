@@ -1,6 +1,7 @@
 # tutorial
 
 Example of a general input parameter files for Gromacs 4 for using flexDQ water model.
+
 For the usage of Gromacs, please check http://www.gromacs.org/
 
 md-xxx.mdp is the input parameter for mdrun
@@ -32,7 +33,10 @@ For CH4 system:
 grompp -f md-ch4.mdp -c ch4.gro -p topol-ch4.top -n index-ch4.ndx -o md.tpr
 ### Launch the simulation
 (For CH4 system, one first need to choose ./ch4-b/ or ./ch4-s/ to run. 
+
  Then rename the md_CH4_O-x.xvg to md_CH4_O.xvg, md_CH4_H-x.xvg to md_CH4_H.xvg.
+ 
  So that we do not have to modified the parameters in .mdp or .ndx)
+ 
 mdrun -deffnm md -table md
 
