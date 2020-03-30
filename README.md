@@ -15,12 +15,6 @@ Water .itp should be included in the .top file (#include flexdq.itp)
 Here, we put all the input parameter files used in each files folder.
 User can run a simulation directly in the certain directory.
 
-For CH4 system:
-### Generate .tpr file
-grompp -f md-ch4.mdp -c ch4.gro -p topol-ch4.top -n index-ch4.ndx -o md.tpr
-### Launch the simulation
-mdrun -deffnm md -table md
-
 For Na system:
 ### Generate .tpr file
 grompp -f md-na.mdp -c na.gro -p topol-na.top -n index-na.ndx -o md.tpr
@@ -33,4 +27,12 @@ grompp -f md-cl.mdp -c cl.gro -p topol-cl.top -n index-cl.ndx -o md.tpr
 ### Launch the simulation
 mdrun -deffnm md -table md
 
+For CH4 system:
+### Generate .tpr file
+grompp -f md-ch4.mdp -c ch4.gro -p topol-ch4.top -n index-ch4.ndx -o md.tpr
+### Launch the simulation
+(For CH4 system, one first need to choose ./ch4-b/ or ./ch4-s/ to run. 
+ Then rename the md_CH4_O-x.xvg to md_CH4_O.xvg, md_CH4_H-x.xvg to md_CH4_H.xvg.
+ So that we do not have to modified the parameters in .mdp or .ndx)
+mdrun -deffnm md -table md
 
