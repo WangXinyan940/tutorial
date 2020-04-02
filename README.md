@@ -44,3 +44,11 @@ grompp -f md-ch4.mdp -c ch4.gro -p topol-ch4.top -n index-ch4.ndx -o md.tpr
  
 mdrun -deffnm md -table md
 
+###For DPPC membrane system:
+#### Generate .tpr file
+grompp -f md-mem.mdp -c mem.gro -p topol-mem.top -n index-mem.ndx -o md.tpr
+#### Launch the simulation
+mdrun -deffnm md -table md
+(For DPPC-water system, the parameters of DPPC are from MARTINI force field. 
+We combine DPPC parameters with our flexDQ parameters directly.)
+
