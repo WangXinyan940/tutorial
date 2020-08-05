@@ -1,0 +1,63 @@
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+dt                       = 0.005   ;
+nsteps                   = 400000  ;
+
+; OUTPUT CONTROL OPTIONS
+nstxout                 = 500   ; 
+nstvout                 = 500   ;
+nstfout                 = 500   ;
+nstenergy               = 500   ;
+nstlog                  = 500   ;
+energygrps              = O H
+
+;cutoff-scheme          = group
+; NEIGHBORSEARCHING PARAMETERS
+nstlist                  = 5
+ns-type                  = Grid
+pbc                      = xyz
+rlist                    = 1.2
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+energygrp_table          =O O H H O H
+
+coulombtype              = PME
+fourierspacing           = 0.16 ; grid spacing for FFT
+rcoulomb                 = 1.2
+;vdw-type                 = cutoff
+vdw-type                 = user
+rvdw                     = 1.2           ;
+epsilon-r                = 2.4           ;
+
+
+; Temperature coupling
+Tcoupl                   = nose-hoover
+;Tcoupl                   = v-rescale
+tc-grps                  = SOL
+tau_t                    = 1.0    ;
+ref_t                    = 300    ;
+
+;
+Pcoupl                   = Parrinello-Rahman
+;Pcoupl                   = berendsen
+Pcoupltype               = Isotropic
+tau_p                    = 2.0
+compressibility          = 4.5e-5    ;
+ref_p                    = 1.0   ;
+refcoord_scaling         = com
+
+;
+gen_vel                  = yes
+;gen_temp                 = 300
+;gen_seed                 = -1
+; OPTIONS FOR BONDS
+constraints              = none
+;constraints              = all-bonds
+continuation             = no          ; continuation from NVT
+constraint_algorithm     = lincs        ; holonomic constraints
+lincs_iter               = 1            ; accuracy of LINCS
+lincs_order              = 4            ; also related to accuracy
+
+
+

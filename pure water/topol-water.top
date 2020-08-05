@@ -1,0 +1,33 @@
+;
+; Include forcefield parameters
+#include "ff.itp"
+
+; [ moleculetype ]
+; Name            nrexcl
+; SOL             3
+
+; [ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+
+; Include Position restraint file
+#ifdef POSRES
+#include "posre.itp"
+#endif
+
+; Include water topology
+#include "flexdq.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+[ system ]
+; Name
+flexDQ water
+
+[ molecules ]
+; Compound        #mols
+SOL               916
