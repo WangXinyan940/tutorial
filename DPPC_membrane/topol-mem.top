@@ -1,0 +1,47 @@
+;       File 'topol.top' was generated
+;       By user: nscc1331 (3032)
+;       On host: gcn02
+;
+;
+; Include forcefield parameters
+#include "martini_v2.2refP-flex.itp"
+#include "martini_v2.0_DPPC_01.itp"
+
+[ system ]
+DPPC BILAYER in water
+
+; [ moleculetype ]
+; Name            nrexcl
+; SOL             3
+
+; [ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+;     1        CH3      1    CH3    CH3      1          0         15   ; qtot 0
+
+; Include Position restraint file
+#ifdef POSRES in water
+#include "posre.itp"
+#endif
+
+; Include water topology
+#include "flexdq.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include generic topology for ions
+; #include "ions.itp"
+
+[ system ]
+; Name
+DPPC-flexDQ water
+
+[ molecules ]
+; Compound        #mols
+DPPC              128
+;SOL                916
+SOL              1717
