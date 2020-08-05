@@ -20,6 +20,20 @@ Here, we put all the input parameter files used in each files folder.
 
 User can run a simulation directly in the certain directory.
 
+
+###For DPPC membrane system:
+#### Generate .tpr file
+grompp -f md-mem.mdp -c mem.gro -p topol-mem.top -n index-mem.ndx -o md.tpr
+#### Launch the simulation
+mdrun -deffnm md -table md
+(For DPPC-water system, the parameters of DPPC are from MARTINI force field. 
+We combine DPPC parameters with our flexDQ parameters by optimization of SFE for each particle types given from MARTINI)
+
+
+#########
+###Other systems will be updated later...
+#########
+
 ###For Na system:
 #### Generate .tpr file
 grompp -f md-na.mdp -c na.gro -p topol-na.top -n index-na.ndx -o md.tpr
@@ -43,12 +57,3 @@ grompp -f md-ch4.mdp -c ch4.gro -p topol-ch4.top -n index-ch4.ndx -o md.tpr
  So that we do not have to modified the parameters in .mdp or .ndx)
  
 mdrun -deffnm md -table md
-
-###For DPPC membrane system:
-#### Generate .tpr file
-grompp -f md-mem.mdp -c mem.gro -p topol-mem.top -n index-mem.ndx -o md.tpr
-#### Launch the simulation
-mdrun -deffnm md -table md
-(For DPPC-water system, the parameters of DPPC are from MARTINI force field. 
-We combine DPPC parameters with our flexDQ parameters directly.)
-
