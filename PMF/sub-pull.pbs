@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N A-flex-pull
+#PBS -q q7
+#PBS -j oe
+#PBS -l nodes=1:ppn=1
+
+cd $PBS_O_WORKDIR
+source /share/scripts/gromacs-4.5.4.env
+
+grompp -f pull.mdp -c init.gro -n -p -o pull.tpr
+mpirun mdrun -deffnm pull -table md -v
+
+

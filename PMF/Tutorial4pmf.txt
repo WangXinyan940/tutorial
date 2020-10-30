@@ -1,0 +1,14 @@
+Ref website:
+http://www.mdtutorials.com/gmx/umbrella/01_pdb2gmx.html
+
+Step 1: Run the pulling simulation
+grompp -f pull.mdp -c init.gro -n -p -o pull.tpr
+mpirun mdrun -deffnm pull -table md
+
+Step 2: Run the umbrella sampling simulation
+grompp -f md_umbrella.mdp -c confLAMBDA.gro -p -n -o umbrellaLAMBDA.tpr
+mpirun mdrun -deffnm umbrellaLAMBDA -pf pullfLAMBDA.xvg -px pullxLAMBDA.xvg -table md
+
+Step 3: Analysis
+g_wham -it tpr.dat -if pullf.dat -o -hist -v
+

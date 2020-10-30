@@ -1,0 +1,14 @@
+#include "martini_v2.2refP-flex.itp"
+#include "a2.itp"
+#include "flexDQ.itp"
+
+[ system ]
+; name
+TOY PEPTIDE in WATER in water
+
+[ molecules ]
+; name  number
+TOYPEP 1
+SOL              2775
+SOL               335
+SOL               232

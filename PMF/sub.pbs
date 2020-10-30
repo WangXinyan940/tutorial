@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N A-umLAMBDA
+#PBS -q q6
+#PBS -j oe
+#PBS -l nodes=1:ppn=1
+
+cd $PBS_O_WORKDIR
+source /share/scripts/gromacs-4.5.4.env
+
+grompp -f md_umbrella.mdp -c confLAMBDA.gro -p -n -o umbrellaLAMBDA.tpr
+mpirun mdrun -deffnm umbrellaLAMBDA -pf pullfLAMBDA.xvg -px pullxLAMBDA.xvg -table md
+
