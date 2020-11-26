@@ -1,3 +1,8 @@
+Notes:
+One difference simulation condition established here is that the system needs to be NVT.
+In NPT system, flexDQ has a significant change of density in different temperature, which will give strange PMF results.
+So, in order to make a reasonable comparison, we use NVT system instead.
+
 Ref website:
 http://www.mdtutorials.com/gmx/umbrella/01_pdb2gmx.html
 
