@@ -1,0 +1,6 @@
+<Residues>
+    <Residue name="SOL">
+        <Bond from="OW" to="H1"/>
+        <Bond from="OW" to="H2"/>
+    </Residue>
+</Residues>
